@@ -7,7 +7,7 @@ const customTheme : Theme= {
   dark: true,
   colors:{
 
-    ...DarkTheme.colors
+    ...DefaultTheme.colors
 
     // primary: string;
     // background: string;

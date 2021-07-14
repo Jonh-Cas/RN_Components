@@ -11,6 +11,7 @@ import customSectionListScreen from '../screens/customSectionListScreen';
 import ModalScreen from '../screens/ModalScreen';
 import InfiniteScrollScreen from '../screens/InfiniteScrollScreen';
 import SlidesScreen from '../screens/SlidesScreen';
+import ChangeThemeScreen from '../screens/ChangeThemeScreen';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +21,7 @@ const StackNavigation = () => {
         screenOptions={{
             headerShown: false,
             cardStyle: {
-                
+
             }
         }}
         >
@@ -35,6 +36,7 @@ const StackNavigation = () => {
             <Stack.Screen  name='ModalScreen' component={ModalScreen} />
             <Stack.Screen  name='InfiniteScrollScreen' component={InfiniteScrollScreen} />
             <Stack.Screen  name='SlidesScreen' component={SlidesScreen} />
+            <Stack.Screen  name='ChangeThemeScreen' component={ChangeThemeScreen} />
         </Stack.Navigator>
     )
 }
