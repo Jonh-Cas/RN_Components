@@ -14,6 +14,8 @@ const FlatListMenuItem = ({ menuItem }: Props) => {
 
     const navigation = useNavigation();
     const {theme: {colors}  } = useContext(ThemeContext)
+    
+
     // const { colors } = useTheme();
 
 
@@ -28,7 +30,7 @@ const FlatListMenuItem = ({ menuItem }: Props) => {
                     color={colors.primary }
                     size={30}
                 />
-                <Text style={styles.itemText} >
+                <Text style={{...styles.itemText, color: colors.text }} >
                     {menuItem.name}
                 </Text>
 

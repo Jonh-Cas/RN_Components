@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { View, Text, TextInput, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import HeaderTitle from '../components/HeaderTitle';
 import { styles } from '../Theme/appTheme';
 import useForm from '../Hooks/useForm';
 import CustomSwitch from '../components/CustomSwitch';
+import { ThemeContext } from '../context/themeContext/ThemeContex';
 
 const TextInpuntScreen = () => {
 
@@ -15,6 +16,8 @@ const TextInpuntScreen = () => {
         phone: '',
         isSuscribe: false,
     });
+
+    const {theme: {colors } } = useContext(ThemeContext)
 
     const { isSubcribe } = form;
 
@@ -33,20 +36,22 @@ const TextInpuntScreen = () => {
                     <View style={styles.globalMargin} >
                         <HeaderTitle title='TextInput' />
                         <TextInput
-                            style={stylesText.inputStyle}
+                            style={{...stylesText.inputStyle, borderColor: colors.primary, color: colors.text }}
                             placeholder='Ingrese su nombre'
                             autoCorrect={false}
                             autoCapitalize='words'
                             onChangeText={(value) => onChange(value, 'name')}
+                            placeholderTextColor='gray'
                         />
                         <TextInput
-                            style={stylesText.inputStyle}
+                             autoCorrect={false}
+                             autoCapitalize='none'
+                             style={{...stylesText.inputStyle, borderColor: colors.primary, color: colors.text }}
                             placeholder='Ingrese su email'
-                            autoCorrect={false}
-                            autoCapitalize='none'
                             onChangeText={(value) => onChange(value, 'email')}
                             keyboardType='email-address'
                             keyboardAppearance='dark'
+                            placeholderTextColor='gray'
                         />
                         <View style={{
                             flexDirection: 'row',
@@ -65,8 +70,9 @@ const TextInpuntScreen = () => {
                         <HeaderTitle title={JSON.stringify(form, null, 3)} />
 
                         <TextInput
-                            style={stylesText.inputStyle}
+                             style={{...stylesText.inputStyle, borderColor: colors.primary, color: colors.text }}
                             placeholder='ingrese su telefono'
+                            placeholderTextColor='gray'
                             onChangeText={(value) => onChange(value, 'phone')}
                             keyboardType='phone-pad'
                         />
@@ -86,7 +92,6 @@ export default TextInpuntScreen;
 const stylesText = StyleSheet.create({
     inputStyle: {
         borderWidth: 1,
-        borderColor: '#5856D6',
         borderRadius: 10,
         height: 50,
         padding: 10,
