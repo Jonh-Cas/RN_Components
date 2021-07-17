@@ -12,7 +12,7 @@ const ChangeThemeScreen = () => {
         <View style={styles.globalMargin} >
             <HeaderTitle title='Theme' />
 
-            <View style={{flexDirection: 'row', justifyContent: 'space-between' }} >
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
 
 
                 <TouchableOpacity

@@ -1,17 +1,17 @@
 import React, { useContext } from 'react'
-import { View, StyleSheet, Animated, Button,  } from 'react-native'
+import { View, StyleSheet, Animated, Button, } from 'react-native'
 import ItemSeparater from '../components/ItemSeparater';
 import { useAnimation } from '../Hooks/useAnimation'
 import { ThemeContext } from '../context/themeContext/ThemeContex';
 
 const Animacion101Screen = () => {
 
-    const {opacity, position, fadeIn, fadeOut, startMoving } =  useAnimation();
-    const {theme: { colors } } = useContext(ThemeContext)
+    const { opacity, position, fadeIn, fadeOut, startMoving } = useAnimation();
+    const { theme: { colors } } = useContext(ThemeContext)
 
 
     return (
-        <View style={{flex: 1}} >
+        <View style={{ flex: 1 }} >
             <View style={styles.container} >
                 <Animated.View style={{
                     ...styles.purpleBox,
@@ -21,20 +21,20 @@ const Animacion101Screen = () => {
                     transform: [{
                         translateX: position
                     }]
-                    }} />
-                <Button  
+                }} />
+                <Button
                     title='FadeIn'
-                    onPress={ () => { 
+                    onPress={() => {
                         fadeIn();
                         startMoving(100);
-                     } }
-                     color={colors.primary }
+                    }}
+                    color={colors.primary}
                 />
                 <ItemSeparater />
-                <Button  
+                <Button
                     title='FadeOut'
-                    onPress={ () => fadeOut(500) }
-                    color= {colors.primary }
+                    onPress={() => fadeOut(500)}
+                    color={colors.primary}
                 />
 
             </View>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    
+
     purpleBox: {
         width: 150,
         height: 150,

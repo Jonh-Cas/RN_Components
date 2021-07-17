@@ -14,7 +14,7 @@ const SwitchScreen = () => {
     });
 
     const { isActive, isHungry, isHappy } = state;
-    const {theme: { colors } } = useContext(ThemeContext)
+    const { theme: { colors } } = useContext(ThemeContext)
 
     const onChange = (value: boolean, field: string) => {
         setState({
@@ -30,20 +30,20 @@ const SwitchScreen = () => {
             <HeaderTitle title='Switches' />
 
             <View style={styles.switchRow} >
-                <Text style={{...styles.switchText, color:  colors.text }} > isActive </Text>
-                <CustomSwitch isOn={isActive} onChange={ (value) => onChange(value, 'isActive') } />
+                <Text style={{ ...styles.switchText, color: colors.text }} > isActive </Text>
+                <CustomSwitch isOn={isActive} onChange={(value) => onChange(value, 'isActive')} />
             </View>
             <View style={styles.switchRow} >
-                <Text style={{...styles.switchText, color:  colors.text }} > isHungry </Text>
-                <CustomSwitch isOn={isHungry} onChange={ (value) => onChange(value, 'isHungry') } />
+                <Text style={{ ...styles.switchText, color: colors.text }} > isHungry </Text>
+                <CustomSwitch isOn={isHungry} onChange={(value) => onChange(value, 'isHungry')} />
             </View>
             <View style={styles.switchRow} >
-                <Text style={{...styles.switchText, color:  colors.text }} > isHappy </Text>
-                <CustomSwitch isOn={isHappy} onChange={ (value) => onChange(value, 'isHappy') } />
+                <Text style={{ ...styles.switchText, color: colors.text }} > isHappy </Text>
+                <CustomSwitch isOn={isHappy} onChange={(value) => onChange(value, 'isHappy')} />
             </View>
 
-            <Text style={{...styles.switchText, color:  colors.text }} >
-                { JSON.stringify(state, null, 3) }
+            <Text style={{ ...styles.switchText, color: colors.text }} >
+                {JSON.stringify(state, null, 3)}
             </Text>
 
         </View>

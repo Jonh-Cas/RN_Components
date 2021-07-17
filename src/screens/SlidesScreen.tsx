@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react'
-import { Dimensions, 
-         Image, 
-         ImageSourcePropType, 
-         StyleSheet, 
-         Text, 
-         View, 
-         TouchableOpacity, 
-         Animated } from 'react-native';
+import {
+    Dimensions,
+    Image,
+    ImageSourcePropType,
+    StyleSheet,
+    Text,
+    View,
+    TouchableOpacity,
+    Animated
+} from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
@@ -17,7 +19,7 @@ import { ThemeContext } from '../context/themeContext/ThemeContex';
 
 
 
-interface Props extends StackScreenProps<any,any> {};
+interface Props extends StackScreenProps<any, any> { };
 
 interface Slide {
     title: string;
@@ -25,7 +27,7 @@ interface Slide {
     img: ImageSourcePropType
 }
 
-const { width: screenWidth} = Dimensions.get('screen');
+const { width: screenWidth } = Dimensions.get('screen');
 
 
 const items: Slide[] = [
@@ -51,10 +53,10 @@ const items: Slide[] = [
 
 
 
-const SlidesScreen = ({ navigation } : Props) => {
+const SlidesScreen = ({ navigation }: Props) => {
 
     const [activeIndex, setActiveIndex] = useState(0);
-    const {theme: {colors} } = useContext(ThemeContext)
+    const { theme: { colors } } = useContext(ThemeContext)
 
     const { fadeIn, fadeOut, opacity } = useAnimation();
 
@@ -79,8 +81,8 @@ const SlidesScreen = ({ navigation } : Props) => {
                     }}
                 />
 
-                <Text style={{...styles.title, color: colors.text }} > {item.title} </Text>
-                <Text style={{...styles.subtitle, color: colors.text }} > {item.desc} </Text>
+                <Text style={{ ...styles.title, color: colors.text }} > {item.title} </Text>
+                <Text style={{ ...styles.subtitle, color: colors.text }} > {item.desc} </Text>
 
             </View>
         );
@@ -105,9 +107,9 @@ const SlidesScreen = ({ navigation } : Props) => {
                 onSnapToItem={(index) => {
                     setActiveIndex(index);
                     console.log(index);
-                    (index === 2 ) 
-                    ? fadeIn(300)
-                    : fadeOut();
+                    (index === 2)
+                        ? fadeIn(300)
+                        : fadeOut();
                 }}
             />
 
@@ -149,7 +151,7 @@ const SlidesScreen = ({ navigation } : Props) => {
                     }}
                         activeOpacity={0.8}
                         onPress={() => navigation.navigate('HomeScreen')}
-                        disabled={ (activeIndex === 2 ) ? false : true  }
+                        disabled={(activeIndex === 2) ? false : true}
                     >
                         <Text style={{
                             fontSize: 25,

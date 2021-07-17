@@ -6,26 +6,26 @@ interface ThemeContextProps {
     theme: ThemeState;
     setDarkTheme: () => void;
     setLightTheme: () => void;
-    
+
 }
 
 
 
-export const ThemeContext = createContext({} as ThemeContextProps );
+export const ThemeContext = createContext({} as ThemeContextProps);
 
-export const ThemeProvider = ({ children } :any ) => {
+export const ThemeProvider = ({ children }: any) => {
 
     // const colorScheme= useColorScheme(); // Solo IOS 1
-    const [theme, dispatch] = useReducer(themeReducer, 
-                (Appearance.getColorScheme() === 'dark')? darkTheme : lightTheme );
+    const [theme, dispatch] = useReducer(themeReducer,
+        (Appearance.getColorScheme() === 'dark') ? darkTheme : lightTheme);
 
     useEffect(() => {
         AppState.addEventListener('change', (status) => {
-           if(status === 'active' ){
-               (Appearance.getColorScheme()  === 'light')
-               ? setLightTheme()
-               : setDarkTheme()
-           }
+            if (status === 'active') {
+                (Appearance.getColorScheme() === 'light')
+                    ? setLightTheme()
+                    : setDarkTheme()
+            }
         })
     }, [])
 
@@ -38,23 +38,23 @@ export const ThemeProvider = ({ children } :any ) => {
     // }, [colorScheme]);
 
     const setDarkTheme = () => {
-        dispatch({type: 'set_Dark_ theme'});
+        dispatch({ type: 'set_Dark_ theme' });
         console.log('setDarkTheme');
     }
-    
+
     const setLightTheme = () => {
-        dispatch({type: 'set_Light_theme'});
+        dispatch({ type: 'set_Light_theme' });
         console.log('setLightTheme');
     }
 
 
-    return(
+    return (
         <ThemeContext.Provider value={{
             theme,
             setDarkTheme,
             setLightTheme,
         }} >
-            { children }
+            {children}
         </ThemeContext.Provider >
     );
 }

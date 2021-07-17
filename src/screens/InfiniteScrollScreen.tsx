@@ -6,32 +6,32 @@ import { ThemeContext } from '../context/themeContext/ThemeContex';
 
 const InfiniteScrollScreen = () => {
 
-    const [numbers, setNumbers] = useState([0,1,2,3,4,5]);
+    const [numbers, setNumbers] = useState([0, 1, 2, 3, 4, 5]);
     const { theme: { colors } } = useContext(ThemeContext);
-    
+
     const loadMore = () => {
-            const newArray: number[] = []; 
-            for( let i = 0; i < 5; i++){
-                newArray[i] = numbers.length + i;
+        const newArray: number[] = [];
+        for (let i = 0; i < 5; i++) {
+            newArray[i] = numbers.length + i;
 
-            } 
+        }
 
-            setTimeout(() => {
-                setNumbers([...numbers, ...newArray]);
-            }, 1500);
+        setTimeout(() => {
+            setNumbers([...numbers, ...newArray]);
+        }, 1500);
 
     }
 
     const renderItem = (item: number) => {
         return (
-            <FadeInImage  
-                uri={ `https://picsum.photos/id/${item}/200/300` } 
+            <FadeInImage
+                uri={`https://picsum.photos/id/${item}/200/300`}
                 style={{
                     width: '100%',
                     height: 400,
                 }}
             />
-            
+
             // <Image 
             //     source={{uri: `https://picsum.photos/id/${item }/200/300`}}
             //     style={{ 
@@ -45,32 +45,32 @@ const InfiniteScrollScreen = () => {
 
     return (
         <View style={{ flex: 1 }} >
-            
-            <FlatList 
-                data={ numbers }
-                keyExtractor={ (item) => item.toString() }
-                renderItem={ ({item}) => renderItem(item) }
-                ListHeaderComponent={ () =>(
-                <View  style={{marginHorizontal: 20,}} >
-                    <HeaderTitle title='Infinite Scroll' />  
-                </View>
+
+            <FlatList
+                data={numbers}
+                keyExtractor={(item) => item.toString()}
+                renderItem={({ item }) => renderItem(item)}
+                ListHeaderComponent={() => (
+                    <View style={{ marginHorizontal: 20, }} >
+                        <HeaderTitle title='Infinite Scroll' />
+                    </View>
                 )}
-                onEndReached={ loadMore  }
-                onEndReachedThreshold={ 0.5 }
+                onEndReached={loadMore}
+                onEndReachedThreshold={0.5}
 
                 ListFooterComponent={() =>
-                    (<View
-                     style={{
-                         height: 150,
-                         width: '100%',
-                         justifyContent: 'center',
-                         alignItems: 'center',
-                     }}
-                    >
-                        <ActivityIndicator size={20} color={colors.primary } /> 
-                    </View>)
-            
-            } />              
+                (<View
+                    style={{
+                        height: 150,
+                        width: '100%',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
+                >
+                    <ActivityIndicator size={20} color={colors.primary} />
+                </View>)
+
+                } />
         </View>
     )
 }
@@ -78,7 +78,7 @@ const InfiniteScrollScreen = () => {
 export default InfiniteScrollScreen;
 
 const styles = StyleSheet.create({
-    textItem:{
+    textItem: {
         backgroundColor: 'green',
         height: 150,
     }

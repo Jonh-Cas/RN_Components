@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-const useForm = <T extends Object>( initialState: T ) => {
+const useForm = <T extends Object>(initialState: T) => {
 
     const [state, setState] = useState({
         name: '',
@@ -10,7 +10,7 @@ const useForm = <T extends Object>( initialState: T ) => {
         isSubcribe: false,
     });
 
-    const onChange = <K extends Object>(value: K, field: keyof T ) => {
+    const onChange = <K extends Object>(value: K, field: keyof T) => {
         setState({
             ...state,
             [field]: value,

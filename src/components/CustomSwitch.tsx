@@ -8,13 +8,13 @@ interface Props {
 
 }
 
-const CustomSwitch = ({isOn, onChange }: Props) => {
+const CustomSwitch = ({ isOn, onChange }: Props) => {
 
     const { theme: { colors } } = useContext(ThemeContext)
 
     const [isOnState, setIsOnState] = useState(isOn);
     const [isEnabled, setIsEnabled] = useState(false);
-    
+
     const toggleSwitch = () => {
         setIsEnabled(!isEnabled);
         onChange(!isEnabled);

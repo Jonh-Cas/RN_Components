@@ -3,10 +3,10 @@ import { useRef } from 'react';
 import { Animated, Easing } from 'react-native';
 
 export const useAnimation = () => {
-    const opacity = useRef( new Animated.Value(0) ).current;
-    const position = useRef( new Animated.Value(-100) ).current;
+    const opacity = useRef(new Animated.Value(0)).current;
+    const position = useRef(new Animated.Value(-100)).current;
 
-    const fadeIn = (duration : number = 300) => {
+    const fadeIn = (duration: number = 300) => {
         Animated.timing(
             opacity,
             {
@@ -14,12 +14,12 @@ export const useAnimation = () => {
                 duration,
                 useNativeDriver: true,
             }
-        ).start( );
+        ).start();
 
 
     }
 
-    const fadeOut = (duration : number = 300) => {
+    const fadeOut = (duration: number = 300) => {
         Animated.timing(
             opacity,
             {
@@ -30,7 +30,7 @@ export const useAnimation = () => {
         ).start();
     }
 
-    const startMoving = (initPosition: number, duration: number = 300 ) => {
+    const startMoving = (initPosition: number, duration: number = 300) => {
 
         position.setValue(initPosition);
 
@@ -52,5 +52,5 @@ export const useAnimation = () => {
         fadeIn,
         fadeOut,
         startMoving
-    }   
+    }
 }

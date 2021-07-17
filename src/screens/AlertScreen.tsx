@@ -7,19 +7,19 @@ import { ThemeContext } from '../context/themeContext/ThemeContex';
 
 const AlertScreen = () => {
 
-    const {theme: {colors}} = useContext(ThemeContext)
+    const { theme: { colors } } = useContext(ThemeContext)
 
     const showAlert = () => {
         Alert.alert(
             "Alert Title",
             "My Alert Msg",
             [
-              {
-                text: "Cancel",
-                onPress: () => console.log("Cancel Pressed"),
-                style: 'destructive'
-              },
-              { text: "OK", onPress: () => console.log("OK Pressed") }
+                {
+                    text: "Cancel",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: 'destructive'
+                },
+                { text: "OK", onPress: () => console.log("OK Pressed") }
             ],
             {
                 cancelable: true,
@@ -33,8 +33,8 @@ const AlertScreen = () => {
             'Enter password',
             'Enter your password to claim your $1.5B in lottery winnings',
             [
-             {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-             {text: 'OK', onPress: password => console.log('OK Pressed, password: ' + password)},
+                { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                { text: 'OK', onPress: password => console.log('OK Pressed, password: ' + password) },
             ],
             {
                 type: 'secure-text',
@@ -58,16 +58,16 @@ const AlertScreen = () => {
     return (
         <View style={styles.globalMargin} >
             <HeaderTitle title='Alerts' />
-            <Button 
+            <Button
                 title='mostrar Alerta'
                 onPress={showAlert}
-                color={colors.primary }
+                color={colors.primary}
             />
 
-            <View style={{height: 10}} > 
+            <View style={{ height: 10 }} >
 
             </View>
-            <Button 
+            <Button
                 title='mostrar Propt'
                 onPress={showPropt}
                 color={colors.primary}

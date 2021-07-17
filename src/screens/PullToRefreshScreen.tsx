@@ -9,9 +9,9 @@ const PullToRefreshScreen = () => {
 
     const [refreshing, setRefreshing] = useState(false);
     const [data, setData] = useState<string>();
-    const { top } =  useSafeAreaInsets()
-    const { theme: {colors, dark, dividerColor} } = useContext(ThemeContext)
-    
+    const { top } = useSafeAreaInsets()
+    const { theme: { colors, dark, dividerColor } } = useContext(ThemeContext)
+
     const onRefresh = () => {
         setRefreshing(true);
         setTimeout(() => {
@@ -24,34 +24,34 @@ const PullToRefreshScreen = () => {
 
 
     return (
-        <ScrollView 
+        <ScrollView
             style={{
-                marginTop:  refreshing ? top : 0,
+                marginTop: refreshing ? top : 0,
             }}
             refreshControl={
                 <RefreshControl
                     refreshing={refreshing}
-                    onRefresh={ onRefresh }
+                    onRefresh={onRefresh}
                     progressViewOffset={10}
                     progressBackgroundColor={dividerColor}
-                    colors={[ colors.text ]} // Android
-                    style={{backgroundColor: '#5856D6'}} // IOS
-                    tintColor={(dark)?'white': 'black' }  // IOS
-                    // title='Refresigh' //IOS
-                    // titleColor='white' //IOS
+                    colors={[colors.text]} // Android
+                    style={{ backgroundColor: '#5856D6' }} // IOS
+                    tintColor={(dark) ? 'white' : 'black'}  // IOS
+                // title='Refresigh' //IOS
+                // titleColor='white' //IOS
                 />
             }
         >
 
-        <View style={styles.globalMargin} >
-            <HeaderTitle title='Pull to Refresh' />
+            <View style={styles.globalMargin} >
+                <HeaderTitle title='Pull to Refresh' />
 
-            {
-                data && <HeaderTitle title={ data } />
+                {
+                    data && <HeaderTitle title={data} />
 
-            }
-            
-        </View>
+                }
+
+            </View>
         </ScrollView>
     )
 }

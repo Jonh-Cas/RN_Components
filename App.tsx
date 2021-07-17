@@ -22,7 +22,7 @@ const App = () => {
   return (
 
     <AppState>
-        <StackNavigation />
+      <StackNavigation />
     </AppState>
 
   )

@@ -17,7 +17,7 @@ const TextInpuntScreen = () => {
         isSuscribe: false,
     });
 
-    const {theme: {colors } } = useContext(ThemeContext)
+    const { theme: { colors } } = useContext(ThemeContext)
 
     const { isSubcribe } = form;
 
@@ -36,7 +36,7 @@ const TextInpuntScreen = () => {
                     <View style={styles.globalMargin} >
                         <HeaderTitle title='TextInput' />
                         <TextInput
-                            style={{...stylesText.inputStyle, borderColor: colors.primary, color: colors.text }}
+                            style={{ ...stylesText.inputStyle, borderColor: colors.primary, color: colors.text }}
                             placeholder='Ingrese su nombre'
                             autoCorrect={false}
                             autoCapitalize='words'
@@ -44,9 +44,9 @@ const TextInpuntScreen = () => {
                             placeholderTextColor='gray'
                         />
                         <TextInput
-                             autoCorrect={false}
-                             autoCapitalize='none'
-                             style={{...stylesText.inputStyle, borderColor: colors.primary, color: colors.text }}
+                            autoCorrect={false}
+                            autoCapitalize='none'
+                            style={{ ...stylesText.inputStyle, borderColor: colors.primary, color: colors.text }}
                             placeholder='Ingrese su email'
                             onChangeText={(value) => onChange(value, 'email')}
                             keyboardType='email-address'
@@ -70,7 +70,7 @@ const TextInpuntScreen = () => {
                         <HeaderTitle title={JSON.stringify(form, null, 3)} />
 
                         <TextInput
-                             style={{...stylesText.inputStyle, borderColor: colors.primary, color: colors.text }}
+                            style={{ ...stylesText.inputStyle, borderColor: colors.primary, color: colors.text }}
                             placeholder='ingrese su telefono'
                             placeholderTextColor='gray'
                             onChangeText={(value) => onChange(value, 'phone')}
