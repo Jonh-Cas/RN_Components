@@ -1,5 +1,5 @@
-import React, { useContext, useRef } from 'react'
-import { View, Text, StyleSheet, Animated, Button, Easing } from 'react-native'
+import React, { useContext } from 'react'
+import { View, StyleSheet, Animated, Button,  } from 'react-native'
 import ItemSeparater from '../components/ItemSeparater';
 import { useAnimation } from '../Hooks/useAnimation'
 import { ThemeContext } from '../context/themeContext/ThemeContex';
@@ -15,6 +15,7 @@ const Animacion101Screen = () => {
             <View style={styles.container} >
                 <Animated.View style={{
                     ...styles.purpleBox,
+                    backgroundColor: colors.primary,
                     marginBottom: 20,
                     opacity,
                     transform: [{
@@ -52,7 +53,6 @@ const styles = StyleSheet.create({
     },
     
     purpleBox: {
-        backgroundColor: '#5856D6',
         width: 150,
         height: 150,
     }

@@ -17,15 +17,22 @@ import ModalScreen from '../screens/ModalScreen';
 import InfiniteScrollScreen from '../screens/InfiniteScrollScreen';
 import SlidesScreen from '../screens/SlidesScreen';
 import ChangeThemeScreen from '../screens/ChangeThemeScreen';
+import { View } from 'react-native';
 
 const Stack = createStackNavigator();
 
 const StackNavigation = () => {
 
 
-    const {theme  } = useContext(ThemeContext);
+    const {theme } = useContext(ThemeContext);
 
     return (
+        <View style={ {
+            backgroundColor: theme.colors.background,
+            flex: 1,
+        }} >
+
+
         <NavigationContainer
             theme={ theme }
         >
@@ -35,7 +42,10 @@ const StackNavigation = () => {
                     cardStyle: {
 
                     }
+                    
                 }}
+                
+
             >
                 <Stack.Screen name='HomeScreen' component={HomeScreen} />
                 <Stack.Screen name='Animation101Screen' component={Animation101Screen} />
@@ -51,7 +61,7 @@ const StackNavigation = () => {
                 <Stack.Screen name='ChangeThemeScreen' component={ChangeThemeScreen} />
             </Stack.Navigator>
         </NavigationContainer>
-
+        </View>
     )
 }
 

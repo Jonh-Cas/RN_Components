@@ -34,7 +34,7 @@ const ModalScreen = () => {
                     flex: 1, 
                     // height: 100,
                     // width: 100,
-                    backgroundColor: 'rgba(0,0,0,0.3 )',
+                    backgroundColor: 'rgba(0,0,0,0.5 )',
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}
@@ -45,7 +45,6 @@ const ModalScreen = () => {
                     width: 200,
                     height: 200,
                     backgroundColor: colors.background,
-                    borderColor: colors.border,
                     justifyContent: 'center',
                     alignItems: 'center',
                     shadowOffset: {

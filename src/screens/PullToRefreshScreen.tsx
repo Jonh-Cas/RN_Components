@@ -10,7 +10,7 @@ const PullToRefreshScreen = () => {
     const [refreshing, setRefreshing] = useState(false);
     const [data, setData] = useState<string>();
     const { top } =  useSafeAreaInsets()
-    const { theme: {colors} } = useContext(ThemeContext)
+    const { theme: {colors, dark, dividerColor} } = useContext(ThemeContext)
     
     const onRefresh = () => {
         setRefreshing(true);
@@ -33,10 +33,10 @@ const PullToRefreshScreen = () => {
                     refreshing={refreshing}
                     onRefresh={ onRefresh }
                     progressViewOffset={10}
-                    progressBackgroundColor={colors.primary}
-                    colors={[ 'red', 'green', 'blue' ]} // Android
+                    progressBackgroundColor={dividerColor}
+                    colors={[ colors.text ]} // Android
                     style={{backgroundColor: '#5856D6'}} // IOS
-                    tintColor='white'  // IOS
+                    tintColor={(dark)?'white': 'black' }  // IOS
                     // title='Refresigh' //IOS
                     // titleColor='white' //IOS
                 />
