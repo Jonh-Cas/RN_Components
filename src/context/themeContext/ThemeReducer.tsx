@@ -45,11 +45,14 @@ export const themeReducer = (state: ThemeState, action: ThemeAction): ThemeState
         case 'set_Light_theme':
             return {
                 ...lightTheme,
+
             }
 
         case 'set_Dark_ theme':
             return {
                 ...darkTheme,
+
+
             }
 
 
